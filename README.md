@@ -155,12 +155,3 @@ Se muestran los resultados obtenidos para el modelo propio.
 ## Limitaciones
 
 Este proyecto tiene fines exclusivamente académicos y de investigación. Además, se ha enfocado en el desarrollo de tarea de recuperación de texto e imágenes del modelo de BiomedCLIP, no se han implementado las tareas de clasificación de imágenes o respuesta de preguntas. 
-
----
-
-
----
-
-## 📄 Licencia
-
-Este proyecto se distribuye bajo la licencia que el autor considere apropiada (MIT, Apache 2.0, etc.).
