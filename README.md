@@ -55,6 +55,9 @@ radiologytraindata_clean.csv
 ├───── script.py
 ├───── script2.py
 ├───── script3.py
+├── data/
+├───── Trainingdataset.py
+├───── radiologytestdata_clean.csv
 ├── demo/
 ├───── app.py
 ├── requirements.txt
@@ -65,10 +68,11 @@ Donde:
 
 | Archivo | Descripción |
 |----------|------------|
-| `train.py` | Entrenamiento y fine-tuning |
-| `inference.py` | Inferencia con el modelo entrenado |
+| `script_final.py` | Entrenamiento del modelo con parámetros optimizados |
 | `app.py` | Aplicación Gradio |
 | `requirements.txt` | Dependencias del proyecto |
+
+Además, el modelo final puede ser encontrado **[aquí]( https://huggingface.co/spaces/lulu12lemon/biomedclip/blob/main/model.pt)**
 
 ---
 
@@ -106,58 +110,10 @@ pip install -r requirements.txt
 
 ---
 
-## Entrenamiento
-
-Ejemplo de ejecución:
-
-```bash
-python train.py \
-    --epochs 5 \
-    --batch_size 64 \
-    --learning_rate 1e-5
-```
-
-### Hiperparámetros recomendados
-
-| Parámetro | Valor |
-|------------|---------|
-| Learning Rate | 1e-5 |
-| Batch Size | 64 |
-| Epochs | 5 |
-| Optimizador | AdamW |
-| Weight Decay | 0.01 |
-
----
-
-## Inferencia
-
-Ejemplo de carga del modelo:
-
-```python
-import open_clip
-
-model, preprocess_train, preprocess_val = open_clip.create_model_and_transforms(
-    "hf-hub:TU_USUARIO/biomedclip-roco-finetuned"
-)
-
-tokenizer = open_clip.get_tokenizer(
-    "hf-hub:TU_USUARIO/biomedclip-roco-finetuned"
-)
-```
-
-### Recuperación imagen-texto
-
-```python
-image_features = model.encode_image(image)
-text_features = model.encode_text(text)
-
-similarity = image_features @ text_features.T
-```
-
----
-
 ## Aplicación Gradio
 
+Primero descargar el modelo **[aquí]( https://huggingface.co/spaces/lulu12lemon/biomedclip/blob/main/model.pt)**
+Nota: Para la demo, como parte de las imágenes para recuperar y mostrar se usó el test set del dataset ROCO. 
 Ejecutar localmente:
 
 ```bash
@@ -170,30 +126,29 @@ La interfaz permite:
 - Buscar imágenes radiológicas a partir de texto.
 - Visualizar resultados ordenados por relevancia.
 
+
 ---
 
-## 📊 Resultados
+## Resultados
 
-Puedes incluir aquí las métricas obtenidas durante la evaluación.
+Se muestran los resultados obtenidos para el modelo propio.
 
-| Métrica | Valor |
-|----------|---------|
-| Recall@1 | - |
-| Recall@5 | - |
-| Recall@10 | - |
-| Accuracy | - |
+| Tarea | Métrica | Modelo Propio | BioMedCLIP |
+|----------|---------|---------|---------|
+| Recuperación Imagen a Texto | Recall@1 | 33.55% | 33.21% |
+| Recuperación Imagen a Texto| Recall@5 | 66.27% | 66.02% |
+| Recuperación Imagen a Texto | Recall@10 | 79.40% | 79.26% |
+| Recuperación Texto a Imagen | Recall@1 | 35.60% | 35.49% |
+| Recuperación Texto a Imagen | Recall@5 | 66.96% | 67.09%
+| Recuperación Texto a Imagen | Recall@10 | 80.31% | 80.14%
+
 
 ---
 
 
 ### Interfaz de la Demo
 
-
-```markdown
 ![Demo](image/demo.png)
-```
-
-o directamente desde GitHub:
 
 ---
 
