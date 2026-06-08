@@ -156,7 +156,7 @@ similarity = image_features @ text_features.T
 
 ---
 
-## 🤖 Aplicación Gradio
+## Aplicación Gradio
 
 Ejecutar localmente:
 
@@ -166,9 +166,8 @@ python app.py
 
 La interfaz permite:
 
-- Subir imágenes radiológicas.
-- Buscar descripciones similares.
-- Comparar similitud entre imagen y texto.
+- Describir una imagen radiológica.
+- Buscar imágenes radiológicas a partir de texto.
 - Visualizar resultados ordenados por relevancia.
 
 ---
@@ -186,75 +185,24 @@ Puedes incluir aquí las métricas obtenidas durante la evaluación.
 
 ---
 
-## 🖼️ Capturas de Pantalla
 
 ### Interfaz de la Demo
 
-Inserta aquí una captura de tu Space:
 
 ```markdown
-![Demo](imagenes/demo.png)
+![Demo](image/demo.png)
 ```
 
 o directamente desde GitHub:
 
-```markdown
-![Demo](https://raw.githubusercontent.com/usuario/repositorio/main/assets/demo.png)
-```
+---
+
+## Limitaciones
+
+Este proyecto tiene fines exclusivamente académicos y de investigación. Además, se ha enfocado en el desarrollo de tarea de recuperación de texto e imágenes del modelo de BiomedCLIP, no se han implementado las tareas de clasificación de imágenes o respuesta de preguntas. 
 
 ---
 
-## 🎯 Casos de Uso
-
-- Recuperación de imágenes médicas.
-- Investigación en inteligencia artificial biomédica.
-- Sistemas multimodales para radiología.
-- Búsqueda semántica en imágenes clínicas.
-- Aplicaciones educativas en medicina e ingeniería biomédica.
-
----
-
-## ⚠️ Limitaciones
-
-Este proyecto tiene fines exclusivamente académicos y de investigación.
-
-- No está aprobado para uso clínico.
-- No reemplaza la interpretación de un profesional de la salud.
-- El desempeño depende de los datos utilizados durante el entrenamiento.
-
----
-
-## 📚 Referencias
-
-### BiomedCLIP
-
-```bibtex
-@article{zhang2023biomedclip,
-  title={BiomedCLIP: A Multimodal Biomedical Foundation Model Pretrained from Fifteen Million Scientific Image-Text Pairs},
-  author={Zhang et al.},
-  year={2023}
-}
-```
-
-### ROCO
-
-```bibtex
-@inproceedings{pelka2018roco,
-  title={Radiology Objects in Context (ROCO)},
-  author={Pelka et al.},
-  year={2018}
-}
-```
-
----
-
-## 🙏 Agradecimientos
-
-- Microsoft Research por BiomedCLIP.
-- OpenCLIP.
-- Autores del dataset ROCO.
-- Hugging Face.
-- Comunidad de PyTorch.
 
 ---
 
