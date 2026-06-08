@@ -1,0 +1,6 @@
+numpy
+pandas
+torch
+tqdm
+open_clip_torch
+transformers
