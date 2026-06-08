@@ -4,3 +4,4 @@ torch
 tqdm
 open_clip_torch
 transformers
+gradio
