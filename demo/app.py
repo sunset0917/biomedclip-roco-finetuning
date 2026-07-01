@@ -71,7 +71,7 @@ def image_to_text(image):
 
 image_features_db = []
 
-print("Encoding images...")
+print("Codificando imágenes")
 
 for path in tqdm(image_paths):
     try:
@@ -85,31 +85,31 @@ for path in tqdm(image_paths):
 
 image_features_db = torch.cat(image_features_db, dim=0).to(device)
 
-print("Image database ready")
+print("Imágenes listas")
 
 caption_features_db = []
 
-print("Encoding captions...")
+print("Codificando descripciones de texto")
 
 for caption in tqdm(captions):
     feat = encode_text(caption)
     caption_features_db.append(feat.cpu())
 caption_features_db = torch.cat(caption_features_db, dim=0).to(device)
 
-print("Caption database ready")
+print("Descripciones de texto listos")
 
 with gr.Blocks() as demo:
-    gr.Markdown("BiomedCLIP Retrieval")
-    with gr.Tab("Text → Image"):
-        text_input = gr.Textbox(label="Medical Query")
+    gr.Markdown("BiomedCLIP Recuperación Multimodal")
+    with gr.Tab("Texto → Imagen"):
+        text_input = gr.Textbox(label="Texto")
         gallery = gr.Gallery(label="Top Results",columns=5)
-        btn = gr.Button("Search")
+        btn = gr.Button("Buscar")
         btn.click(fn=text_to_image,inputs=text_input,outputs=gallery)
 
-    with gr.Tab("Image → Text"):
+    with gr.Tab("Imagen → Texto"):
         img_input = gr.Image(type="pil")
-        text_output = gr.Textbox(label="Retrieved Captions",lines=10)
-        btn2 = gr.Button("Search")
+        text_output = gr.Textbox(label="Descripción recuperada",lines=10)
+        btn2 = gr.Button("Buscar")
         btn2.click(fn=image_to_text,inputs=img_input,outputs=text_output)
 
 demo.launch()
