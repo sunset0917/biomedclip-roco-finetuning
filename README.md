@@ -1,4 +1,4 @@
-# BiomedCLIP Fine-Tuning en ROCO
+# Recuperación Multimodal Imagen - Texto en Imágenes Radiológicas
 
 Modelo BiomedCLIP ajustado (fine-tuning) sobre el conjunto de datos **ROCO (Radiology Objects in Context)** para tareas de recuperación multimodal imagen-texto en el dominio radiológico.
 
